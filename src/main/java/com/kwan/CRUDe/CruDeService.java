@@ -13,21 +13,22 @@ public class CruDeService {
 	@Autowired
 	private OilRepo repo;
 	
-	//principal read method
+	//principal read method, gets all the available batches
 	public List<Oil> readList() {
 		return (List<Oil>)repo.findAll();
 	}
 	
-	//create method
+	//create method, new oil batch
 	public void createOil() {
 		repo.save(new Oil());
 	}
 	
-	//update method
+	//update method by batchId
 	public void updateOil(Long id) {
 		
 		Oil upOil = repo.findById(id).get();
 		
+		//checks oil type then refines it one step
 		switch(upOil.getType()) {
 		case "crude": 
 			upOil.setType("fuel"); break;
@@ -37,14 +38,14 @@ public class CruDeService {
 			upOil.setType("kerosene"); break;
 		case "kerosene":
 			upOil.setType("naphtha"); break;
-		case "fuel oil":
+		case "naphtha":
 			upOil.setType("gasoline"); break;
 		}
 		
 		repo.save(upOil);
 	}
 	
-	//delete method
+	//delete method by batchId
 	public void deleteOil(Long id) {
 		repo.deleteById(id);
 	}
