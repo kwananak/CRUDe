@@ -1,0 +1,48 @@
+body {
+	font-family: Consolas, monaco, monospace;
+}
+
+h3 {
+	color: #393838;
+}
+
+button {
+	transition-duration: 0.2s;
+	border: 1px none black;
+	border-radius: 5px;
+	font-family: Consolas, monaco, monospace;
+	padding: 8px 5px;
+}
+
+button:hover {
+	background-color: white;
+	opacity: 0.4;
+}
+
+#pumpbutton {
+	background-color: #393838;
+	color: #c4c2c2;
+}
+
+#spillbutton {
+	background-color: firebrick;
+	color: #c4c2c2;
+}
+
+#boilbutton {
+	background-color: orange;
+}
+
+#oiltable {
+	background-color: #c4c2c2;
+	padding: 8px 5px;
+	text-align: center;
+	border: 1px solid #393838;
+	border-radius: 5px;
+	color: #393838;
+}
+
+#inborders {
+	border: 1px solid #393838;
+	border-radius: 5px;
+}
