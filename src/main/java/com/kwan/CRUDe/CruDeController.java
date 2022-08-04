@@ -25,22 +25,28 @@ public class CruDeController {
 	
 	//html request to create an Oil object
 	@RequestMapping("/new")
-	public String newBatch() {
+	public String newBatch(Model model) {
 		service.createOil();
-		return "redirect:/crude";
+		List<Oil> oils = (List<Oil>)service.readList();
+		model.addAttribute("oillist", oils);
+		return "Pumped";
 	}
 	
 	//html request to refine a specified batch
 	@RequestMapping("/refine/{id}")
-	public String refineBatchById(@PathVariable Long id) {
+	public String refineBatchById(Model model, @PathVariable Long id) {
 		service.updateOil(id);
-		return "redirect:/crude";
+		List<Oil> oils = (List<Oil>)service.readList();
+		model.addAttribute("oillist", oils);
+		return "Boiled";
 	}
 	
 	//html request to refine a specified batch
 	@RequestMapping("/destroy/{id}")
-	public String destroyBatchById(@PathVariable Long id) {
+	public String destroyBatchById(Model model,@PathVariable Long id) {
 		service.deleteOil(id);
-		return "redirect:/crude";
+		List<Oil> oils = (List<Oil>)service.readList();
+		model.addAttribute("oillist", oils);
+		return "Spilled";
 	}
 }

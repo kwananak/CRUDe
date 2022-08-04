@@ -23,7 +23,7 @@ public class Oil {
 	//constructor setting base type and random quantity
 	public Oil() {
 		type = "crude";
-		quantity = Precision.round(Math.random() * 3, 1);
+		quantity = Precision.round((Math.random() * 3) + .1, 1);
 	}
 	
 }
