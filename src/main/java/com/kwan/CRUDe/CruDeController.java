@@ -10,7 +10,7 @@ public class CruDeController {
 	//displays the home page when receiving a request
 	@RequestMapping("/crude")
 	public String homePage() {
-		return "Home";
+		return "CRUDeHomepage";
 	}
 	
 }

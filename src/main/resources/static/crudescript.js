@@ -11,9 +11,7 @@ function homecall() {
 
 //sends a request to create an oil batch and receives the updated oil list
 function pumpcall() {
-	document.getElementById("pumpimage").src="/images/pumpanim.gif";
-	document.getElementById("spillimage").src="/images/spillstill.gif";
-	document.getElementById("boilimage").src="/images/boilstill.gif";	
+	document.getElementById("pumpimage").src="/images/pumpanim.gif";	
 	
 	let httpRequest = new XMLHttpRequest();
 	httpRequest.open("POST", 'http://localhost:8080/pumpy');
@@ -27,8 +25,6 @@ function pumpcall() {
 //sends a request to refine a specific oil batch and receives the updated oil list
 function boilcall(id) {
 	document.getElementById("boilimage").src="/images/boilanim.gif";
-	document.getElementById("spillimage").src="/images/spillstill.gif";
-	document.getElementById("pumpimage").src="/images/pumpstill.gif";
 	
 	let httpRequest = new XMLHttpRequest();
 	httpRequest.open("POST", 'http://localhost:8080/boily/' + id);
@@ -41,9 +37,7 @@ function boilcall(id) {
 
 //sends a request to delete a specific oil batch and receives the updated oil list
 function spillcall(id) {
-	document.getElementById("spillimage").src="/images/spillanim.gif";
-	document.getElementById("pumpimage").src="/images/pumpstill.gif";
-	document.getElementById("boilimage").src="/images/boilstill.gif";	
+	document.getElementById("spillimage").src="/images/spillanim.gif";	
 	
 	let httpRequest = new XMLHttpRequest();
 	httpRequest.open("POST", 'http://localhost:8080/spilly/' + id);
@@ -56,7 +50,7 @@ function spillcall(id) {
 
 //creates and updates the table with the received list
 function getTable(oillist) {	
-	let text = "<thead><tr><td></td><td>BatchID</td><td>Type</td><td>Quantity</td><td></td></tr></thead><tbody>";
+	let text = "<thead><tr><td></td><td>BatchID</td><td width='80px'>Type</td><td>Quantity</td><td></td></tr></thead><tbody>";
 	for (let oil in oillist) {
 		text += "<tr>";
 		if (oillist[oil].type !== "gasoline") {
@@ -64,7 +58,7 @@ function getTable(oillist) {
 		} else {
 			text += "<td></td>";
 		}
-		text += "<td>" + oillist[oil].batchId + "</td><td>" + oillist[oil].type + "</td><td>" + oillist[oil].quantity + "</td>";
+		text += "<td id='inborders'>" + oillist[oil].batchId + "</td><td id='inborders'>" + oillist[oil].type + "</td><td id='inborders'>" + oillist[oil].quantity + "</td>";
 		text += "<td><button id='spillbutton' onclick='spillcall(" + oillist[oil].batchId + ")'>Spill!</button></td></tr>";
 	}
 	text += "</tbody>";
