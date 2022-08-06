@@ -1,61 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<link rel="stylesheet" href="/style.css">
+		<script src="/crudescript.js"></script>
+		<link rel="stylesheet" href="/crudestyle.css">
 		<meta charset="UTF-8">
 		<title>CRUDe</title>
 	</head>
-	<body>
+	<body onload="homecall()">
 		<div align="center">
 			<br/>
 			<a href="/crude">
 				<img src="/images/header.gif" width="220" height="100">
 			</a>
 			<h3>Cuz there's never too much oil!</h3>
-			<img src="/images/pumpstill.gif">
+			<img id="pumpimage" src="/images/pumpstill.gif">
 			<br/><br/>
-			<a href="/new">
-				<button id="pumpbutton" type="button">Pump!</button>
-			</a>
+			<button id="pumpbutton" onclick="pumpcall()" type="button">Pump!</button>
 			<br/><br/>
 			<table>
 				<tbody>
 					<tr>
 						<td>
-							<img src="/images/boilstill.gif">
+							<img id="boilimage" src="/images/boilstill.gif">
 						</td>
 						<td>
-							<table id="oiltable">
-								<thead>
-									<tr>
-								 		<td></td>
-								 		<td>BatchID</td>
-								 		<td>Type</td>
-								 		<td>Quantity</td>
-								 		<td></td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr th:each="oil : ${oillist}">
-										<td>
-											<a th:href="@{'/refine/'+${oil.batchId}}">
-												<button id="boilbutton" type="button">Boil!</button>
-											</a>
-										</td>
-										<td id="inborders" th:text="${oil.batchId}">id</td>
-										<td id="inborders" th:text="${oil.type}">id</td>
-										<td id="inborders" th:text="${oil.quantity}">id</td>
-										<td>
-											<a th:href="@{'/destroy/'+${oil.batchId}}">
-												<button id="spillbutton" type="button">Spill!</button>
-											</a>
-										</td>
-									</tr>	
-								</tbody>
-							</table>
+							<table id="oiltable"></table>
 						</td>
 						<td>
-							<img src="/images/spillstill.gif">
+							<img id="spillimage" src="/images/spillstill.gif">
 						</td>
 					</tr>
 				</tbody>
