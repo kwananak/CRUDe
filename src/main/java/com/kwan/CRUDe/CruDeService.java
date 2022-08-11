@@ -30,16 +30,20 @@ public class CruDeService {
 		
 		//checks oil type then refines it one step
 		switch(upOil.getType()) {
-		case "crude": 
-			upOil.setType("fuel"); break;
-		case "fuel":
-			upOil.setType("diesel"); break;
-		case "diesel":
-			upOil.setType("kerosene"); break;
-		case "kerosene":
-			upOil.setType("naphtha"); break;
-		case "naphtha":
-			upOil.setType("gasoline"); break;
+		case CRUDE: 
+			upOil.setType(Type.FUEL); break;
+		case FUEL:
+			upOil.setType(Type.DIESEL); break;
+		case DIESEL:
+			upOil.setType(Type.KEROSENE); break;
+		case KEROSENE:
+			upOil.setType(Type.NAPHTHA); break;
+		case NAPHTHA:
+			upOil.setType(Type.GASOLINE); break;
+		case GASOLINE:
+			break;
+		default:
+			break;
 		}
 		
 		repo.save(upOil);

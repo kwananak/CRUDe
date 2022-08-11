@@ -15,14 +15,14 @@ public class Oil {
 	private long batchId;
 	
 	//the refinement level of the current batch
-	private String type;
+	private Type type;
 	
 	//the quantity in barrels
 	private double quantity;
 	
 	//constructor setting base type and random quantity
 	public Oil() {
-		type = "crude";
+		type = Type.CRUDE;
 		quantity = Precision.round((Math.random() * 3) + .1, 1);
 	}
 	
