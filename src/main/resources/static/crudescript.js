@@ -2,7 +2,7 @@
 //main function called to send requests, always updates the oil table
 function sendcall(callmethod, endofcall) {
 	let httpRequest = new XMLHttpRequest();
-	httpRequest.open(callmethod, "http://localhost:8080/" + endofcall);
+	httpRequest.open(callmethod, "http://192.168.1.195:8080/" + endofcall);
 	httpRequest.send();
 	httpRequest.onload = function() {
 		const oillist = JSON.parse(httpRequest.responseText);
@@ -35,7 +35,7 @@ function spillcall(id) {
 
 //creates and updates the table with the received list
 function getTable(oillist) {	
-	let text = "<thead><tr><td></td><td>BatchID</td><td width='80px'>Type</td><td>Quantity</td><td></td></tr></thead><tbody>";
+	let text = "<thead><tr><td></td><td>BatchID</td><td id='typerow'>Type</td><td>Quantity</td><td></td></tr></thead><tbody>";
 	for (let oil in oillist) {
 		text += "<tr>";
 		if (oillist[oil].type !== "GASOLINE") {

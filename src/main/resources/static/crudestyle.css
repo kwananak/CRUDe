@@ -1,17 +1,31 @@
 body {
-	font-family: Consolas, monaco, monospace;
+	font-family: Consolas, monaco, monospace;	
+	font-size: 1.7vw;
 }
 
 h3 {
 	color: #393838;
 }
 
+#pumpimage, #logo {
+	width: 20%;
+	height: auto;
+	max-height: 100%;
+}
+
+#boilimage, #spillimage {
+	width: 100%;
+	height: auto;
+}
+
 button {
 	transition-duration: 0.2s;
-	border: 1px none black;
-	border-radius: 5px;
-	font-family: Consolas, monaco, monospace;
-	padding: 8px 5px;
+	border: 0.1vw none black;
+	border-radius: 1vw;
+	padding: 1.4vw 1vw;
+	width: 100%;
+	height: 80%;
+	font-size: 100%;
 }
 
 button:hover {
@@ -22,6 +36,7 @@ button:hover {
 #pumpbutton {
 	background-color: #393838;
 	color: #c4c2c2;
+	width :8%
 }
 
 #spillbutton {
@@ -33,16 +48,25 @@ button:hover {
 	background-color: orange;
 }
 
+table {
+	width:100%;
+	height: auto;
+}
+
 #oiltable {
 	background-color: #c4c2c2;
-	padding: 8px 5px;
+	padding: 1.4vw 1vw;
 	text-align: center;
-	border: 1px solid #393838;
-	border-radius: 5px;
+	border: 0.1vw solid #393838;
+	border-radius: 1vw;
 	color: #393838;
 }
 
 #inborders {
-	border: 1px solid #393838;
-	border-radius: 5px;
+	border: 0.1vw solid #393838;
+	border-radius: 1vw;
+}
+
+#typerow {
+	width: 25%;
 }
